@@ -11,13 +11,13 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.use(cookieParser());
   app.enableCors({
-    origin: '*',
+    origin: 'http://localhost:3000',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
     allowedHeaders: 'Content-Type, Accept, Authorization, X-Requested-With',
     exposedHeaders: 'X-Total-Count, Content-Range',
   });
-  app.useStaticAssets(join(__dirname, '..', 'public')); //dont forget delete it when will be in production
+  app.useStaticAssets(join(__dirname, '..', 'public'));
   const configService = app.get(ConfigService);
   const port = configService.getOrThrow<string>('PORT');
   await app.listen(port);
