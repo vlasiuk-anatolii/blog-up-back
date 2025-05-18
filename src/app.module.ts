@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { CommentsModule } from './comments/comments.module';
 import { RecaptchaModule } from './recaptcha/recaptcha.module';
+import { HealthController } from './health.controller';
 
 @Module({
   imports: [
@@ -32,7 +33,7 @@ import { RecaptchaModule } from './recaptcha/recaptcha.module';
     RecaptchaModule,
     RecaptchaModule,
   ],
-  controllers: [],
+  controllers: [HealthController],
   providers: [],
 })
 export class AppModule {}
