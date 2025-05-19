@@ -20,6 +20,10 @@ import { HealthController } from './health.controller';
           url: configService.getOrThrow<string>('DB_URL'),
           synchronize: false,
           autoLoadEntities: true,
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
         };
       },
     }),
