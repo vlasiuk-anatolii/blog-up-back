@@ -14,26 +14,19 @@ import { HealthController } from './health.controller';
     ConfigModule.forRoot({ isGlobal: true, validationSchema }),
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.getOrThrow<string>('DB_HOST'),
-        port: +configService.getOrThrow<string>('DB_PORT'),
-        username: configService.getOrThrow<string>('DB_USER'),
-        password: configService.getOrThrow<string>('DB_PASSWORD'),
-        database: configService.getOrThrow<string>('DB_NAME'),
-        schema: configService.get<string>('DB_SCHEMA'),
-        synchronize: false,
-        autoLoadEntities: true,
-        ssl: {
-          rejectUnauthorized: false,
-        },
-      }),
+      useFactory: (configService: ConfigService) => {
+        return {
+          type: 'postgres',
+          url: configService.getOrThrow<string>('DB_URL'),
+          synchronize: false,
+          autoLoadEntities: true,
+        };
+      },
     }),
     PostsModule,
     UsersModule,
     AuthModule,
     CommentsModule,
-    RecaptchaModule,
     RecaptchaModule,
   ],
   controllers: [HealthController],
