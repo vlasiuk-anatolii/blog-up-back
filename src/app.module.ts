@@ -18,7 +18,7 @@ import { HealthController } from './health.controller';
         return {
           type: 'postgres',
           url: configService.getOrThrow<string>('DB_URL'),
-          synchronize: false,
+          synchronize: true,
           autoLoadEntities: true,
           ssl: {
             require: true,
