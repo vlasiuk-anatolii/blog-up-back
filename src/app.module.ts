@@ -24,7 +24,9 @@ import { HealthController } from './health.controller';
         schema: configService.get<string>('DB_SCHEMA'),
         synchronize: false,
         autoLoadEntities: true,
-        ssl: false,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
     }),
     PostsModule,
