@@ -4,7 +4,7 @@ This is the backend part of a full-stack blog application built using **NestJS**
 
 ## 📽️ Demo
 
-[Watch demo video](https://www.loom.com)
+[Watch demo video](https://youtu.be/tDdf4KkAD3A)
 
 ## 🚀 Features
 
@@ -44,12 +44,7 @@ Create a `.env` file in the current directory with the following content:
 ```env
 PORT="3001"
 
-DB_HOST="localhost"
-DB_PORT="5432"
-DB_USER="postgres"
-DB_PASSWORD="1111"
-DB_NAME="blog-up"
-DB_SCHEMA="public"
+DB_URL=postgres://postgres:1711@localhost:5432/blog-up?schema=public
 
 JWT_SECRET="uWoYsHgYqqsCH4O11PgpuMQAWSRObk5T"
 JWT_EXPIRATION="10h"
@@ -83,8 +78,8 @@ back/
 * [x] API for posts (CRUD)
 * [x] API for comments
 * [x] Authentication (login, singup)
-* [x] Environment-based config
 * [x] Input validation
+* [x] Sanitize html in comment defore saving to db
 * [x] PostgreSQL DB setup
 
 ## ➕ Optional Enhancements
@@ -97,7 +92,7 @@ back/
 ## 📝 Notes
 
 * The frontend should be configured to send requests to `http://localhost:3001`
-* Make sure PostgreSQL is running and a database named `blog` is created
+* Make sure PostgreSQL is running and a database named `blog-up` is created
 
 ## 📄 License
 
