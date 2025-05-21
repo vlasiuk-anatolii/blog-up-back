@@ -33,7 +33,6 @@ export class AuthService {
       sameSite: 'none',
       secure: true,
     });
-
     return { tokenPayload };
   }
 
