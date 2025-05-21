@@ -30,6 +30,7 @@ export class AuthService {
     response.cookie('Authentication', token, {
       expires,
       httpOnly: true,
+      sameSite: 'none',
       secure: true,
     });
 
