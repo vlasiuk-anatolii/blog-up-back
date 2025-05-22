@@ -20,6 +20,9 @@ RUN npm ci --only=production
 
 COPY --from=builder /app/dist ./dist
 
+RUN mkdir -p /app/public/images/comments
+RUN mkdir -p /app/public/text-files/comments
+
 EXPOSE 3001
 
 ENV NODE_ENV=production
