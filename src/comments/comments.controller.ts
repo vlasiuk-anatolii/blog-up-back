@@ -35,7 +35,7 @@ export class CommentsController {
   }
 
   @Post(':commentId/file')
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
