@@ -17,6 +17,7 @@ async function bootstrap() {
       'https://prismatic-melba-decbc8.netlify.app',
       'http://main.d2dfwvjrfw5ric.amplifyapp.com',
       'https://web-production-0c09.up.railway.app',
+      'https://blog-up-front-production-2bff.up.railway.app',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
