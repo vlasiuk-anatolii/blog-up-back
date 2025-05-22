@@ -12,9 +12,9 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'http://localhost:3000',
-      'https://web-production-0c09.up.railway.app',
       'https://blog-up-front.vercel.app',
       'https://blog-up-front-production-a8be.up.railway.app',
+      'https://prismatic-melba-decbc8.netlify.app',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
