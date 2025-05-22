@@ -7,13 +7,13 @@ import {
   Delete,
   Patch,
   NotFoundException,
-  //UseGuards,
+  UseGuards,
   Query,
 } from '@nestjs/common';
 import { PostsService } from './posts.service';
 import { CreatePostDto } from './dto/create-post.request';
 import { UpdatePostDto } from './dto/update-post.request';
-//import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { TokenPayload } from 'src/auth/token-payload.interface';
 import { Post as PostEntity } from './post.entity';
@@ -23,7 +23,7 @@ export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
   @Post()
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   async create(
     @Body() createPostDto: CreatePostDto,
     @CurrentUser() user: TokenPayload,
@@ -32,7 +32,7 @@ export class PostsController {
   }
 
   @Get()
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   async findAll() {
     return this.postsService.findAll();
   }
@@ -43,7 +43,7 @@ export class PostsController {
   }
 
   @Get(':id')
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   async findOne(@Param('id') id: number) {
     const post = await this.postsService.findOne(+id);
     if (!post) {
@@ -53,13 +53,13 @@ export class PostsController {
   }
 
   @Patch(':id')
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   async update(@Param('id') id: number, @Body() updatePostDto: UpdatePostDto) {
     return this.postsService.update(+id, updatePostDto);
   }
 
   @Delete(':id')
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   async remove(@Param('id') id: number) {
     return this.postsService.remove(+id);
   }
