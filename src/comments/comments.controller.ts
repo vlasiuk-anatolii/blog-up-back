@@ -3,7 +3,7 @@ import {
   Get,
   Post,
   Body,
-  UseGuards,
+  //UseGuards,
   UseInterceptors,
   UploadedFile,
   ParseFilePipe,
@@ -13,7 +13,7 @@ import {
 import { CommentsService } from './comments.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateCommentDto } from './dto/create-comment.request';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+//import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { CurrentUser } from 'src/auth/current-user.decorator';
 import { TokenPayload } from 'src/auth/token-payload.interface';
 import { diskStorage } from 'multer';
@@ -26,7 +26,7 @@ export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   async create(
     @Body() createCommentDto: CreateCommentDto,
     @CurrentUser() user: TokenPayload,
@@ -35,7 +35,7 @@ export class CommentsController {
   }
 
   @Post(':commentId/file')
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
@@ -102,7 +102,7 @@ export class CommentsController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
+  //@UseGuards(JwtAuthGuard)
   async findAll() {
     return this.commentsService.findAll();
   }
