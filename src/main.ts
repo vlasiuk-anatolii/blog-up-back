@@ -15,6 +15,7 @@ async function bootstrap() {
       'https://blog-up-front.vercel.app',
       'https://blog-up-front-production-a8be.up.railway.app',
       'https://prismatic-melba-decbc8.netlify.app',
+      'http://main.d2dfwvjrfw5ric.amplifyapp.com',
     ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
